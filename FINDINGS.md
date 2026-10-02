@@ -18,14 +18,24 @@ The new coins had already been cut into roughly 141,000 outputs. The largest was
 
 ## This run
 
-Resumed 2026-10-02 07:29:22 UTC on muon-10, kaspad 2.1.0, mempool 34,033, synced.
+At 07:29:22 UTC muon-10 was synced, mempool 34,033.
 
 - Confirmed balance on the main key: 2,080,971.4416 tKAS in 140,931 coins.
 - Already on the 20 working indexes: 1,589 coins, 392,503.8357 tKAS.
 - Still to move: 411 coins. Projected total moved: 490,608.1500 tKAS. Left on the main key: 1,982,867.1274 tKAS.
-- Fan-out fee tier: 100 sompi/gram. The first batches were accepted with no rejects.
+- The first fan-out batches at 100 sompi/gram were accepted with no rejects. That process was then killed from another desk session.
 
-An earlier fan-out in the same hour died after 628 accepts. This resume counts coins already on the working indexes and does not move them again.
+A resume at 07:32:03 UTC did not send. Every synced public node was over the 92,000 mempool line:
+
+| Node | Mempool |
+|---|---|
+| muon-10 | 116,789 |
+| vector-10 | 145,866 |
+| proton-10 | 396,431 |
+| neutrino-10 | 396,255 |
+| boson-10 | 396,255 |
+
+kaspad 2.1.0 can panic when a transaction is inserted after the pool is already past 100,000, so the run stops instead of submitting. Nothing was consolidated. The retry waits until the lowest synced mempool is under 92,000, then continues. Coins already on the working indexes are counted and are not moved again.
 
 After the new coins confirm, the schedule is 1-input 2-output hops between those 20 indexes:
 

@@ -45,6 +45,10 @@ After the new coins confirm, the schedule is 1-input 2-output hops between those
 
 Stop if the node leaves testnet-10 or loses sync, if more than 10 percent are rejected across 2 minutes, if free disk falls under 10 GB, if fees would cross the 800,000 tKAS cap or the 100,000 tKAS reserve, or if muon-10's mempool reaches 92,000. Working outputs are then consolidated back to the main key.
 
-The mass sender was stopped for this run so it would not spend the same coins. One other desk session has been clearing that stop and starting it again. It was stopped again at the resume above.
+## Drain
 
-This note will be updated when the schedule finishes.
+The goal is now to push until the treasury is empty. One sender is running, testnet-10 only, fee rule `max(2 * normal, priority)`.
+
+At 2026-10-02 07:36:44 UTC the confirmed balance was 2,007,087.07961719 tKAS. The sender had 15,000 lanes and 60 sockets on each node. The live rate was 771 sompi/gram (normal 196, priority 976). One batch submitted about 1,176 tx/s and the next about 612 tx/s. Roughly half of those were accepted. The rejects in that window were orphans. The public mempool on the node it was using was about 149,000.
+
+It stops when the confirmed balance is under 0.03 tKAS. If the process dies before that, one keeper starts it again. This note will be updated when that stop is reached.

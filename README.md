@@ -4,7 +4,7 @@
 >
 > [Disclaimer](DISCLAIMER.md)
 >
-> **Archived on 11 Oct 2026 (read-only, nothing deleted):** merged into match/ of the full gusto repo. See [tn10-storm-2026-10-02](https://github.com/STP-KAS/tn10-storm-2026-10-02). Renamed from `full-gusto`. Map of every storm: [tn-master](https://github.com/STP-KAS/tn-master).
+> **Archived on 11 Oct 2026 (read-only, nothing deleted):** merged into match/ of the full gusto repo. See [tn10-storm-2026-10-02-public](https://github.com/STP-KAS/tn10-storm-2026-10-02-public). Renamed from `full-gusto`. Map of every storm: [tn-master](https://github.com/STP-KAS/tn-master).
 
 # Full gusto
 
